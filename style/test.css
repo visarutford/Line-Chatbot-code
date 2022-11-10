@@ -21,7 +21,9 @@ body {
         background-position: 0% 50%;
     }
 }
-
+.cen{
+    text-align: center;
+}
 /* Background */
 /* .content-table {
     border-collapse: collapse;
