@@ -30,7 +30,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     }
 
     function updateSheet(z) {
-        axios.get('https://sheetdb.io/api/v1/4of84xk0dc6m9', {
+        axios.get('https://sheetdb.io/api/v1/18lnlp3fu7168', {
     })
         .then((res) => {
             console.log("this is paremeter z's value : " + z);
@@ -40,7 +40,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
             let freqInt = parseInt(freq);
             let x = freqInt + 1;
             let y = z + 1;
-            let url ='https://sheetdb.io/api/v1/4of84xk0dc6m9/id/' + y;
+            let url ='https://sheetdb.io/api/v1/18lnlp3fu7168/id/' + y;
             console.log(url);
             axios.patch(url , {
                 "data": { "frequency": x }
@@ -56,20 +56,20 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   	function howMany(agent) {
 
         if (randomizer(2) == 2) {
-            agent.add(`(inline test)ดูข้อมูลเพิ่มเติมได้ที่นี้ครับ https://lib.kku.ac.th/article.php?a_id=4414`);
+            agent.add(`ดูข้อมูลเพิ่มเติมได้ที่นี้ครับ https://lib.kku.ac.th/article.php?a_id=4414`);
         } else {
-            agent.add(`(inline test) 50 รายการครับ`);
+            agent.add(`50 รายการครับ`);
         }
         updateSheet(0);
     }
   	
   	function lateFine(agent) {
       if (randomizer(2) == 2) {
-            agent.add(`(inline test)หนังสือ 5 บาท/วัน/รายการ 
+            agent.add(`หนังสือ 5 บาท/วัน/รายการ 
 					ทรัพยากรที่ใช้อิเล็กทรอนิสก์ 50 บาท/วัน/รายการ
 					ทรัพยากรที่ไม่ใช้อิเล็กทรอนิกส์ 20 บาท/วัน/รายการ`);
         } else {
-            agent.add(`(inline test) ดูข้อมูลเพิ่มเติมได้ที่นี่ครับ https://lib.kku.ac.th/article.php?a_id=4414`);
+            agent.add(`ดูข้อมูลเพิ่มเติมได้ที่นี่ครับ https://lib.kku.ac.th/article.php?a_id=4414`);
         }
         updateSheet(1);
     }
@@ -77,18 +77,18 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   	function howToBorrow(agent) {
 
         if (randomizer(2) == 2) {
-            agent.add(`(inline test)ติดต่อขอยืมที่ Counter ยืมคืน ชั้น 2 อาคารศูนย์สารสนเทศ โดยใช้บัตรสมาชิกของตนเองนะครับ ^^`);
+            agent.add(`ติดต่อขอยืมที่ Counter ยืมคืน ชั้น 2 อาคารศูนย์สารสนเทศ โดยใช้บัตรสมาชิกของตนเองนะครับ ^^`);
         } else {
-            agent.add(`(inline test) ดูข้อมูลเพิ่มเติมได้ที่นี่ครับ https://lib.kku.ac.th/article.php?a_id=4414`);
+            agent.add(`ดูข้อมูลเพิ่มเติมได้ที่นี่ครับ https://lib.kku.ac.th/article.php?a_id=4414`);
         }
         updateSheet(2);
     }
   	
   	function howToRenew(agent) {
         if (randomizer(2) == 2) {
-            agent.add(`(inline test) นำบัตรสมาชิกมาติดต่อ Counter ยืมคืน ชั้น 2 อาคารศูนย์สารสนเทศ หรือยืมต่อด้วยตนเองที่เว็บ http://opac.kku.ac.th/Member/Login.aspx ครับ`);
+            agent.add(`นำบัตรสมาชิกมาติดต่อ Counter ยืมคืน ชั้น 2 อาคารศูนย์สารสนเทศ หรือยืมต่อด้วยตนเองที่เว็บ http://opac.kku.ac.th/Member/Login.aspx ครับ`);
         } else {
-            agent.add(`(inline test) 1. ไปที่ URL: http://opac.kku.ac.th/Member/Login.aspx
+            agent.add(`1. ไปที่ URL: http://opac.kku.ac.th/Member/Login.aspx
 				2. คลิกปุ่ม KKU Single Sign On (SSO) เพื่อเข้าสู่ระบบสมาชิก (สำหรับบุคลากรและนักศึกษา มข.)  
 				3. คลิกเข้าสู่ระบบสมาชิกเพื่อทำการตรวจสอบรายการยืม ตรวจสอบค่าปรับ และยืมต่อ`);
         }	
@@ -98,16 +98,16 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   	
   	
   	function renewQuota(agent) {
-        agent.add(`(inline test)ไม่จำกัดจำนวนครั้ง ยกเว้นมีคนจองหนังสือนั้นแล้วครับผม`);
+        agent.add(`ไม่จำกัดจำนวนครั้ง ยกเว้นมีคนจองหนังสือนั้นแล้วครับผม`);
         updateSheet(4);
     }
   
   	function nonKkuBorrow(agent) {
 
         if (randomizer(2) == 2) {
-            agent.add(`(inline test) สามารถยืมได้ครับ แต่ต้องสมัครเป็นสมาชิกก่อนน๊าา`);
+            agent.add(`สามารถยืมได้ครับ แต่ต้องสมัครเป็นสมาชิกก่อนน๊าา`);
         } else {
-            agent.add(`(inline test) ดูข้อมูลเพิ่มเติมได้ที่ https://lib.kku.ac.th/article.php?a_id=4209 ครับ`);
+            agent.add(`ดูข้อมูลเพิ่มเติมได้ที่ https://lib.kku.ac.th/article.php?a_id=4209 ครับ`);
         }
         updateSheet(5);
     }
@@ -116,15 +116,15 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     function nonKkuUsage(agent) {
 
         if (randomizer(2) == 2) {
-            agent.add(`(inline test)บุคคลทั่วไป (สมาชิกสมทบชั่วคราว) ใช้บริการวันละ 20 บาท ใช้บัตรประชาชนแสดงหลักฐานในการเข้าใช้บริการ`);
+            agent.add(`บุคคลทั่วไป (สมาชิกสมทบชั่วคราว) ใช้บริการวันละ 20 บาท ใช้บัตรประชาชนแสดงหลักฐานในการเข้าใช้บริการ`);
         } else {
-            agent.add(`(inline test)ดูข้อมููลเพิ่มเติมได้ที่ https://lib.kku.ac.th/article.php?a_id=4209 ครับ`);
+            agent.add(`ดูข้อมููลเพิ่มเติมได้ที่ https://lib.kku.ac.th/article.php?a_id=4209 ครับ`);
         }
         updateSheet(6);
     }
   	
 	 function returnLocation(agent) {
-        agent.add(`(Inline editor)ผู้ใช้บริการสามารถหย่อนหนังสือที่ตู้ Book Drop หรือ คืนที่จุดบริการ ยืม คืน ชั้น 2 อาคารศูนย์สารสนเทศ ( กำหนดการเปิดตู้ Book Drop ทุกจุด วันจันทร์, พุธ และ ศุกร์ ช่วงเวลา 9.00 -10.30 น.)`);
+        agent.add(`ผู้ใช้บริการสามารถหย่อนหนังสือที่ตู้ Book Drop หรือ คืนที่จุดบริการ ยืม คืน ชั้น 2 อาคารศูนย์สารสนเทศ ( กำหนดการเปิดตู้ Book Drop ทุกจุด วันจันทร์, พุธ และ ศุกร์ ช่วงเวลา 9.00 -10.30 น.)`);
         updateSheet(7);
     
     }   
@@ -133,33 +133,33 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
 
     function olBooking(agent) {
         if (randomizer(2) == 2) {
-            agent.add(`(inline test)จองได้ผ่านเว็บ https://room.kku.ac.th/ ครับ`);
+            agent.add(`จองได้ผ่านเว็บ https://room.kku.ac.th/ ครับ`);
         } else {
-            agent.add(`(inline test) ดูข้อมูลเพิ่มเติมได้ที่  https://lib.kku.ac.th/article.php?a_id=4400`);
+            agent.add(`ดูข้อมูลเพิ่มเติมได้ที่  https://lib.kku.ac.th/article.php?a_id=4400`);
         }
         updateSheet(8);
     }
 
     function bookLocation(agent) {
         if (randomizer(2) == 2) {
-            agent.add(`(inline test)ค้นหาผ่านเว็บ https://opac.kku.ac.th/main/index.aspx`);
+            agent.add(`ค้นหาผ่านเว็บ https://opac.kku.ac.th/main/index.aspx`);
         } else {
-            agent.add(`(inline test) ดูคลิปแนะนำวิธีการสืบค้นที่ https://youtu.be/7i7IvAPyrr8`);
+            agent.add(`ดูคลิปแนะนำวิธีการสืบค้นที่ https://youtu.be/7i7IvAPyrr8`);
         }
         updateSheet(9);
     }
   
   	function whereIsMakerSpace(agent) {
         if (randomizer(2) == 2) {
-            agent.add(`(inline test) อยู่บริเวณ ชั้น 1 อาคาร 2 ครับ`);
+            agent.add(`อยู่บริเวณ ชั้น 1 อาคาร 2 ครับ`);
         } else {
-            agent.add(`(inline test) สามารถ Inbox มาถามได้ที่ https://www.facebook.com/KKUMakerspace คร้าบ`);
+            agent.add(`สามารถ Inbox มาถามได้ที่ https://www.facebook.com/KKUMakerspace คร้าบ`);
         }
         updateSheet(10);
     }
 	
   	function citationBookLocation(agent) {
-        agent.add(`(inline test) หนังสืออ้างอิงที่เป็นพจนานุกรม และหมวด A-P อยู่ ชั้น 3 ห้อง 2301 ครับ 
+        agent.add(`หนังสืออ้างอิงที่เป็นพจนานุกรม และหมวด A-P อยู่ ชั้น 3 ห้อง 2301 ครับ 
 		ส่วนหมวด Q-Z ภาษาไทย-อังกฤษ อยู่ชั้น 6 ห้อง 2602`);
         updateSheet(11);
     }
