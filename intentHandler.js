@@ -30,26 +30,19 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     }
 
     function updateSheet(z) {
-        axios.get('https://sheetdb.io/api/v1/18lnlp3fu7168', {
-    })
-        .then((res) => {
-            console.log("this is paremeter z's value : " + z);
-            console.log(res.data[z]);
+        axios.get('https://sheetdb.io/api/v1/mik2aw2nrysvj', {
+    }).then((res) => {
             let freq = res.data[z].frequency;
-            console.log("after get " + freq);
             let freqInt = parseInt(freq);
             let x = freqInt + 1;
             let y = z + 1;
-            let url ='https://sheetdb.io/api/v1/18lnlp3fu7168/id/' + y;
+            let url ='https://sheetdb.io/api/v1/mik2aw2nrysvj/id/' + y;
             console.log(url);
             axios.patch(url , {
                 "data": { "frequency": x }
-    
             }).then(response => {
                 console.log(response.data);
-                console.log("this is after pacth" + x);
             });
-    
         });
     }
   
@@ -94,8 +87,6 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
         }	
         updateSheet(3);
     }
-  
-  	
   	
   	function renewQuota(agent) {
         agent.add(`ไม่จำกัดจำนวนครั้ง ยกเว้นมีคนจองหนังสือนั้นแล้วครับผม`);
@@ -111,7 +102,6 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
         }
         updateSheet(5);
     }
-  	
   	
     function nonKkuUsage(agent) {
 
@@ -129,7 +119,6 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     
     }   
 
-    
 
     function olBooking(agent) {
         if (randomizer(2) == 2) {
@@ -206,14 +195,11 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   	intentMap.set('renew quota', renewQuota);
   	intentMap.set('non kku borrowing', nonKkuBorrow);
   	intentMap.set('non kku library usage', nonKkuUsage);
-  	intentMap.set('return location', returnLocation);
+    intentMap.set('return location', returnLocation);
   	intentMap.set('online booking', olBooking);
     intentMap.set('where to find the book', bookLocation);
   	intentMap.set('where is maker space', whereIsMakerSpace);
   	intentMap.set('citation book location', citationBookLocation);
-    
-    
-    
     // intentMap.set('your intent name here', yourFunctionHandler);
     // intentMap.set('your intent name here', googleAssistantHandler);
     agent.handleRequest(intentMap);
