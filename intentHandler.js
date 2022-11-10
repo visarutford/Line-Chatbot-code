@@ -30,21 +30,24 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     }
 
     function updateSheet(z) {
-        axios.get('https://sheetdb.io/api/v1/mik2aw2nrysvj', {
-    }).then((res) => {
-            let freq = res.data[z].frequency;
-            let freqInt = parseInt(freq);
-            let x = freqInt + 1;
-            let y = z + 1;
-            let url ='https://sheetdb.io/api/v1/mik2aw2nrysvj/id/' + y;
-            console.log(url);
-            axios.patch(url , {
-                "data": { "frequency": x }
-            }).then(response => {
-                console.log(response.data);
-            });
-        });
-    }
+    axios.get('https://script.googleusercontent.com/macros/echo?user_content_key=PdFIsePrJ3zBiUNHgLRSVYcBr44dIUJgUFW9zRCXZEpVLH0PK62ekEm72Sn2d84zKUCk-4-oRNqdzNdmUnMB6oIqdvpsk7HWOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMWojr9NvTBuBLhyHCd5hHa2mUzi-YJmH6UZLP294IVo5BnldPySoB6DIPlAC9Arl1oWyCWwF29qq2_QPcESonGVMMi5QshtQ6JZ1sHX63oJ7yqi4vspDi9JqGiB5BdgAUr2AtWDhVFsXZZkyQdQAloHVjA8nX49YU2XiOfMJannRmQ_oP8x_fQBNbBjHjCznD-215fJzmemv0u9IzoOdLpg&lib=M_bFMuGlrfzIMR-tA3KjrcEMyOmf1dwWm', {
+}).then((res) => {
+
+        let freq = res.data[z].frequency;
+        let freqInt = parseInt(freq);
+        console.log("this is after fetch" + freq);
+        let x = freqInt + 1;
+        console.log("incresed = " + x);
+        let y = z + 1;
+        let url ='https://sheetdb.io/api/v1/mik2aw2nrysvj/id/' + y;
+        console.log(url);
+        axios.patch(url , {
+            "data": { "frequency": x }
+         }).then(response => {
+             console.log(response.data);
+         });
+    });
+}
   
   	function howMany(agent) {
 
@@ -78,13 +81,14 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     }
   	
   	function howToRenew(agent) {
-        if (randomizer(2) == 2) {
+      	  if (randomizer(2) == 2) {
             agent.add(`นำบัตรสมาชิกมาติดต่อ Counter ยืมคืน ชั้น 2 อาคารศูนย์สารสนเทศ หรือยืมต่อด้วยตนเองที่เว็บ http://opac.kku.ac.th/Member/Login.aspx ครับ`);
         } else {
             agent.add(`1. ไปที่ URL: http://opac.kku.ac.th/Member/Login.aspx
 				2. คลิกปุ่ม KKU Single Sign On (SSO) เพื่อเข้าสู่ระบบสมาชิก (สำหรับบุคลากรและนักศึกษา มข.)  
 				3. คลิกเข้าสู่ระบบสมาชิกเพื่อทำการตรวจสอบรายการยืม ตรวจสอบค่าปรับ และยืมต่อ`);
         }	
+      	
         updateSheet(3);
     }
   	
