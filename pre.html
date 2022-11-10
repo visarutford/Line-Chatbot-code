@@ -4,35 +4,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Statics</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="js/bootstrap.min.js"></script>
-
+    
 
 
 </head>
 <body>
-
-
     <nav class="navbar navbar-expand-sm navbar-dark bg-success">
 		<div class="container-fluid">
-			<a href="#" class="navbar-brand">KKU LIBRARY</a>
+			<a href="pre.html" class="navbar-brand">KKU LIBRARY</a>
 			<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarToggle">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarToggle">
 				<ul class="navbar-nav">
 					<li class="nav-item">
-						<a href="#" class="nav-link">Home</a>
+						<a href="pre.html" class="nav-link">Home</a>
 					</li>
 					<li class="nav-item">
-						<a href="#" class="nav-link">About</a>
+						<a target="_blank" href="https://library.kku.ac.th/" class="nav-link">About</a>
 					</li>
 					<li class="nav-item">
-						<a href="#" class="nav-link">Contact</a>
+						<a target="_blank" href="https://www.facebook.com/KKULib/" class="nav-link">Contact</a>
 					</li>
 				</ul>
 				
@@ -53,62 +51,62 @@
                     <tr>
                         <td>1</td>
                         <td>ปริญญาตรียืมได้กี่เล่ม</td>
-                        <td>2</td>
+                        <td id = "demo0">0</td>
                     </tr>
                     <tr>
                         <td>2</td>
                         <td>คิดค่าปรับกี่บาทเมื่อเลยกำหนดส่งคืน</td>
-                        <td>1</td>
+                        <td id = "demo1">0</td>
                     </tr>
                     <tr>
                         <td>3</td>
                         <td>ยืมหนังสือยังไง</td>
-                        <td>0</td>
+                        <td id = "demo2">0</td>
                     </tr>
                     <tr>
                         <td>4</td>
                         <td>ยืมหนังสือต่อยังไง</td>
-                        <td>1</td>
+                        <td id = "demo3">0</td>
                     </tr>
                     <tr>
                         <td>5</td>
                         <td>Renew หนังสือได้กี่ครัง</td>
-                        <td>5</td>
+                        <td id = "demo4">0</td>
                     </tr>
                     <tr>
                         <td>6</td>
                         <td>บุคคลภายนอกสามารถยืม-คืนหนังสือได้หรือไม่</td>
-                        <td>1</td>
+                        <td id = "demo5">0</td>
                     </tr>
                     <tr>
                         <td>7</td>
                         <td>ถ้าไม่ใช่สมาชิกห้องสมุด สามารถเข้ามาใช้บริการหอสมุดได้หรือไม่</td>
-                        <td>2</td>
+                        <td id = "demo6">0</td>
                     </tr>
                     <tr>
                         <td>8</td>
                         <td>ส่งหนังสือที่ยืมคืนที่ไหน</td>
-                        <td>1</td>
+                        <td id = "demo7">0</td>
                     </tr>
                     <tr>
                         <td>9</td>
                         <td>จองห้องศึกษาค้นคว้าวิจัยออนไลน์ ได้ที่ไหน</td>
-                        <td>0</td>
+                        <td id = "demo8">0</td>
                     </tr>
                     <tr>
                         <td>10</td>
                         <td>หาหนังสือได้ที่ไหน</td>
-                        <td>1</td>
+                        <td id = "demo9">0</td>
                     </tr>
                     <tr>
                         <td>11</td>
                         <td>Maker space อยู่ที่ไหน</td>
-                        <td>1</td>
+                        <td id = "demo10">0</td>
                     </tr>
                     <tr>
                         <td>12</td>
                         <td>หนังสืออ้างอิงมหาวิทยาลัยขอนแก่นอยู่ชั้นไหน</td>
-                        <td>1</td>
+                        <td id = "demo11">0</td>
                     </tr>
                 </tbody>
             </table>
@@ -116,8 +114,30 @@
     </body>
     
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <!-- <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script> -->
     <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
     <script src="pre.js"></script>
+    <script>
+        fetch('https://sheetdb.io/api/v1/4of84xk0dc6m9')
+            .then(response => {
+            return response.json();
+        }
+        ).then(data => {
+            
+            for(let i = 0; i < data.length; i++) {
+
+                let str = "demo" + i
+
+                const get = document.getElementById(str)
+                let fixNum = parseInt(`${data[i].frequency}`)
+                console.log(typeof(fixNum))
+                get.innerHTML = fixNum
+            }
+     
+            
+        })
+        .catch((err) => {});
+    </script>
+    
 </body>
 </html>
