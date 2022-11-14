@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 * {
     box-sizing: border-box;
 }
@@ -212,4 +213,220 @@ table tr th, td{
   font-size: 13px;
 }
 i.fa-edit{color: lime;}
+=======
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #32d6aa;
+    color: white;
+}
+
+.brand-title {
+    font-size: 1.5rem;
+    margin: .5rem;
+}
+
+.navbar-links {
+    height: 100%;
+}
+
+.navbar-links ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-links li {
+    list-style: none;
+}
+
+.navbar-links li a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    padding: 1rem;
+}
+
+.navbar-links li:hover {
+    background-color: #555;
+}
+
+.toggle-button {
+    position: absolute;
+    top: .75rem;
+    right: 1rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+}
+
+.toggle-button .bar {
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+}
+
+@media (max-width: 800px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .toggle-button {
+        display: flex;
+    }
+
+    .navbar-links {
+        display: none;
+        width: 100%;
+    }
+
+    .navbar-links ul {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .navbar-links ul li {
+        text-align: center;
+    }
+
+    .navbar-links ul li a {
+        padding: .5rem 1rem;
+    }
+
+    .navbar-links.active {
+        display: flex;
+    }
+}
+
+
+.divMain{
+    background: whitesmoke;
+}
+main{
+    widows: 70%;
+    height: auto;
+    padding: 40px;
+    /* margin: 50px auto; */
+    /* background: whitesmoke; */
+    font-family: system-ui;
+    color: #666;
+    /* background: linear-gradient(-45deg, #6D9886, #F2E7D5, #F7F7F7, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 30s ease infinite;
+    height: 100vh; */
+}
+/* @keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+ 
+    50% {
+        background-position: 100% 50%;
+    }
+ 
+    100% {
+        background-position: 0% 50%;
+    }
+} */
+.header{
+    width: 90%;
+    height: 100px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.items-controller,
+.search{
+    flex-shrink: 0;
+    display: flex;
+    align-content: center;
+    align-items: center;
+
+}
+select{
+     padding: 2px;
+    margin: 0 10px;
+       outline: none;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+}
+.search > input{
+    padding: 8px;
+    border: none;
+    outline: navajowhite;
+    margin: 0 0 0 20px;
+    background: white;
+}
+.field{
+    width: 90%;
+    height: auto;
+    margin: auto;
+}
+table{
+    width: 100%;
+    margin: 2px auto;
+    table-layout: auto;
+    color: #757575;
+    background-color: #ffff;
+    border-collapse: collapse;
+    border-spacing: 0;
+    text-align: left;
+}
+table tr th, td{
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+.bottom-field{
+    width: 100%;
+    padding: 20px;
+    margin-top: 20px;
+}
+.pagination{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pagination li{
+  list-style: none;
+  padding: 2px;
+  margin: 10px;
+  flex-shrink: 0;
+  text-align: center;
+  border-radius: 5px;
+  border: 1px solid #999;
+  color: #999;
+}
+.pagination li.active{
+  background: #32d6aa;
+  color: white;
+  border-color: #32d6aa;
+
+}
+.pagination li a{
+  text-decoration: none;
+  padding: 3px 8px;
+  color: inherit;
+  display: block;
+  font-family: sans-serif;
+  font-size: 13px;
+}
+i.fa-edit{color: lime;}
+>>>>>>> d57c949d32e066f7573a9fbd9c4d9b06a2281178
 i.fa-trash{color: red;}
